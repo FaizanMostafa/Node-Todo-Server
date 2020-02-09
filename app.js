@@ -1,4 +1,4 @@
-require('./db');
+require('./config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const tasks = require('./routes/task');
