@@ -1,6 +1,6 @@
 const Task = require('../models/task');
 
-exports.add = function (req, res) {
+exports.add = function(req, res) {
     let task = new Task(
         {
             name: req.body.name,
@@ -17,7 +17,7 @@ exports.add = function (req, res) {
 };
 
 
-exports.all = function (req, res) {
+exports.all = function(req, res) {
     Task.find({}, function (err, tasks) {
         if (err) {
             return next(err);
@@ -29,7 +29,7 @@ exports.all = function (req, res) {
 };
 
 
-exports.get = function (req, res) {
+exports.get = function(req, res) {
     Task.find({_id: req.body.id}, function (err, task) {
         if (err) {
             return next(err);
@@ -41,7 +41,7 @@ exports.get = function (req, res) {
 };
 
 
-exports.update = function (req, res) {
+exports.update = function(req, res) {
     Task.updateOne({_id: req.body.id}, {$set: {
         name: req.body.name,
         status: req.body.status
@@ -54,7 +54,7 @@ exports.update = function (req, res) {
 };
 
 
-exports.delete = function (req, res) {
+exports.delete = function(req, res) {
     Task.deleteOne({_id: req.body.id}, function (err) {
         if (err) {
             return next(err);
